@@ -21,7 +21,6 @@ def createReminder():
     'id': uuid.uuid4().hex,
     'phone_number': req_data['phone_number'],
     'message': req_data['message'],
-    'interval': 'monthly',
     'due_date': req_data['due_date']
   }
 
@@ -44,7 +43,6 @@ def deleteReminder(reminder_id):
   data['reminders'] = reminders
   writeReminderJson(data)
   return jsonify({'message': 'Reminder has been removed successfully'})
-
 
 @app.errorhandler(404)
 def not_found(error):
